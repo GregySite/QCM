@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>QCM Salesforce</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2em;
+      background-color: #f9f9f9;
+    }
+    .question-block {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1em;
+      margin-bottom: 2em;
+      position: relative;
+    }
+    .info-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #007bff;
+      color: white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      line-height: 24px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .explanation {
+      display: none;
+      margin-top: 1em;
+      padding: 0.5em;
+      background-color: #eef5ff;
+      border-left: 3px solid #007bff;
+    }
+    .answer {
+      display: none;
+      margin-top: 1em;
+      font-weight: bold;
+      color: green;
+    }
+    .show-answer-btn {
+      margin-top: 1em;
+      padding: 0.3em 1em;
+      border: none;
+      border-radius: 5px;
+      background-color: #ccc;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="question-block">
+    <div><strong>Question 1 :</strong> A Sales user is trying to manage Campaign Members for an upcoming networking event. The user can view the Campaign, but not add new Campaign Members or update Member statuses. How can an administrator troubleshoot this problem?</div>
+    
+    <ul>
+      <li>A. Create a permission set to allow the user to edit Campaign Members.</li>
+      <li>B. Provide the user access to both Leads and Contacts to edit all Members.</li>
+      <li><strong>C. Make sure the Marketing User Checkbox is checked on the user record page.</strong></li>
+      <li>D. Run a Campaign report and update any Member information via Data Loader.</li>
+    </ul>
+    
+    <button class="show-answer-btn" onmousedown="showAnswer(this)" onmouseup="hideAnswer(this)" ontouchstart="showAnswer(this)" ontouchend="hideAnswer(this)">
+      Afficher la réponse
+    </button>
+    <div class="answer">Réponse correcte : C</div>
+
+    <div class="info-icon" onclick="toggleExplanation(this)">i</div>
+    <div class="explanation">
+      Pour gérer les membres d’une campagne, l’administrateur doit s’assurer que la case “Marketing User” est cochée dans la fiche utilisateur. Cela active les permissions nécessaires.
+    </div>
+  </div>
+
+  <script>
+    function showAnswer(btn) {
+      btn.nextElementSibling.style.display = 'block';
+    }
+
+    function hideAnswer(btn) {
+      btn.nextElementSibling.style.display = 'none';
+    }
+
+    function toggleExplanation(icon) {
+      const explanation = icon.nextElementSibling;
+      explanation.style.display = explanation.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>
